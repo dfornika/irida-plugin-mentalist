@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <iridaWorkflow>
-  <id></id>
-  <name>MLSTMentalist</name>
+  <id>0acdd89e-74b4-4217-96bd-a36bef1e9a12</id>
+  <name>MentaLiST</name>
   <version>0.1.9</version>
   <analysisType>MENTALIST</analysisType>
   <inputs>

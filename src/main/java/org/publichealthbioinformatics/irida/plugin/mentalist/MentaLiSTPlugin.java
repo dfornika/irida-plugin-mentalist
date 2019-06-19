@@ -77,7 +77,7 @@ public class MentaLiSTPlugin extends Plugin {
 		 */
 		@Override
 		public UUID getDefaultWorkflowUUID() {
-			return UUID.fromString("");
+			return UUID.fromString("0acdd89e-74b4-4217-96bd-a36bef1e9a12");
 		}
 
 		/*******************************************************************************
@@ -95,7 +95,7 @@ public class MentaLiSTPlugin extends Plugin {
 		 */
 		@Override
 		public Optional<Color> getBackgroundColor() {
-			return Optional.of(Color.decode(""));
+			return Optional.of(Color.decode("4286f4"));
 		}
 
 		/**
@@ -106,7 +106,7 @@ public class MentaLiSTPlugin extends Plugin {
 		 */
 		@Override
 		public Optional<Color> getTextColor() {
-			return Optional.of(Color.BLACK);
+			return Optional.of(Color.WHITE);
 		}
 
 		/**

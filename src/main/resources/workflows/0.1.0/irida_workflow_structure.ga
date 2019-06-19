@@ -1,296 +1,273 @@
 {
-    "uuid": "834f656f-67f3-49dc-b3d1-236e728b62bb",
-    "tags": [],
+    "a_galaxy_workflow": "true",
+    "annotation": "",
     "format-version": "0.1",
-    "name": "mlst",
-    "version": 1,
+    "name": "MentaLiST",
     "steps": {
         "0": {
-            "tool_id": null,
-            "tool_version": null,
-            "outputs": [],
-            "workflow_outputs": [
-                {
-                    "output_name": "output",
-                    "uuid": "8865fe98-df8a-4845-a6c8-93f7cd134e66",
-                    "label": null
-                }
-            ],
-            "input_connections": {},
-            "tool_state": "{\"collection_type\": \"list:paired\"}",
-            "id": 0,
-            "uuid": "6c75e989-8b13-4c95-a3c1-f9e333910c7d",
-            "errors": null,
-            "name": "Input dataset collection",
-            "label": "sequence_reads_paired",
-            "inputs": [],
-            "position": {
-                "top": 312,
-                "left": 234.5
-            },
             "annotation": "",
             "content_id": null,
-            "type": "data_collection_input"
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "sequence_reads_paired"
+                }
+            ],
+            "label": null,
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 335,
+                "top": 342
+            },
+            "tool_errors": null,
+            "tool_id": null,
+            "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"sequence_reads_paired\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "e856e223-9b0b-48c0-9529-d9107d7fee24",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "1e799ff2-edcb-4929-8559-7b55590c64af"
+                }
+            ]
         },
         "1": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4",
-            "tool_version": "1.0.4",
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/dfornika/mentalist/mentalist_call/0.1.9",
+            "id": 1,
+            "input_connections": {
+                "input_type|fastq_collection": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MentaLiST MLST Analysis",
+                    "name": "input_type"
+                },
+                {
+                    "description": "runtime parameter for tool MentaLiST MLST Analysis",
+                    "name": "kmer_db"
+                }
+            ],
+            "label": null,
+            "name": "MentaLiST MLST Analysis",
             "outputs": [
                 {
-                    "type": "txt",
-                    "name": "shovill_std_log"
-                },
-                {
-                    "type": "fasta",
-                    "name": "contigs"
-                },
-                {
-                    "type": "txt",
-                    "name": "contigs_graph"
+                    "name": "output_file",
+                    "type": "tabular"
                 }
             ],
-            "workflow_outputs": [
-                {
-                    "output_name": "shovill_std_log",
-                    "uuid": "3a8bcc64-c854-40b8-a5cf-504787b65c8d",
-                    "label": null
-                }
-            ],
-            "input_connections": {
-                "library|input1": {
-                    "output_name": "output",
-                    "id": 0
+            "position": {
+                "left": 608,
+                "top": 421
+            },
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput_file": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    },
+                    "action_type": "ChangeDatatypeAction",
+                    "output_name": "output_file"
                 }
             },
-            "tool_state": "{\"adv\": \"{\\\"depth\\\": \\\"100\\\", \\\"gsize\\\": \\\"\\\", \\\"kmers\\\": \\\"\\\", \\\"mincov\\\": \\\"2\\\", \\\"minlen\\\": \\\"0\\\", \\\"namefmt\\\": \\\"contig%05d\\\", \\\"nocorr\\\": \\\"true\\\", \\\"opts\\\": \\\"\\\"}\", \"trim\": \"\\\"true\\\"\", \"log\": \"\\\"true\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"assembler\": \"\\\"spades\\\"\", \"library\": \"{\\\"__current_case__\\\": 1, \\\"input1\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"lib_type\\\": \\\"collection\\\"}\"}",
-            "id": 1,
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/dfornika/mentalist/mentalist_call/0.1.9",
             "tool_shed_repository": {
-                "owner": "iuc",
-                "changeset_revision": "865119fcb694",
-                "name": "shovill",
+                "changeset_revision": "a6cd59f35832",
+                "name": "mentalist",
+                "owner": "dfornika",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "uuid": "111ce7dd-db4e-4b0d-b193-f56d3b00b8cb",
-            "errors": null,
-            "name": "Shovill",
-            "post_job_actions": {
-                "HideDatasetActioncontigs_graph": {
-                    "output_name": "contigs_graph",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
-                "DeleteIntermediatesActionshovill_std_log": {
-                    "output_name": "shovill_std_log",
-                    "action_type": "DeleteIntermediatesAction",
-                    "action_arguments": {}
-                },
-                "RenameDatasetActionshovill_std_log": {
-                    "output_name": "shovill_std_log",
-                    "action_type": "RenameDatasetAction",
-                    "action_arguments": {
-                        "newname": "shovill.log"
-                    }
-                },
-                "HideDatasetActioncontigs": {
-                    "output_name": "contigs",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
+            "tool_state": "{\"input_type\": \"{\\\"fastq_collection\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"sPaired\\\": \\\"collections\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"kmer_db\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": 0}",
+            "tool_version": "0.1.9",
+            "type": "tool",
+            "uuid": "107c79f4-95d9-46a3-ba45-3cca6a0309e7",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output_file",
+                    "uuid": "048a4ce4-c211-4d7d-9074-d6b913c269f5"
                 }
-            },
-            "label": null,
-            "inputs": [],
-            "position": {
-                "top": 233,
-                "left": 626.5
-            },
-            "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4",
-            "type": "tool"
+            ]
         },
         "2": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2",
-            "tool_version": "5.0.2",
-            "outputs": [
-                {
-                    "type": "txt",
-                    "name": "log_txt"
-                },
-                {
-                    "type": "tabular",
-                    "name": "mis_ass_tsv"
-                },
-                {
-                    "type": "tabular",
-                    "name": "unalign_tsv"
-                },
-                {
-                    "type": "tabular",
-                    "name": "quast_tsv"
-                },
-                {
-                    "type": "html",
-                    "name": "report_html"
-                },
-                {
-                    "type": "pdf",
-                    "name": "report_pdf"
-                }
-            ],
-            "workflow_outputs": [
-                {
-                    "output_name": "quast_tsv",
-                    "uuid": "0392d089-645d-4552-ad32-d7ccdebdd690",
-                    "label": null
-                }
-            ],
-            "input_connections": {
-                "input": {
-                    "output_name": "contigs",
-                    "id": 1
-                }
-            },
-            "tool_state": "{\"input_operon\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"threshold_contig\": \"\\\"0,1000\\\"\", \"__rerun_remap_job_id__\": null, \"annot\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"large\": \"\\\"false\\\"\", \"type_file\": \"\\\"contig\\\"\", \"input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"input_size\": \"\\\"\\\"\", \"input_ref\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"min_contig\": \"\\\"500\\\"\", \"gene_selection\": \"\\\"prokaryotes\\\"\"}",
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/nml/combine_tabular_collection/combine/0.1",
             "id": 2,
-            "tool_shed_repository": {
-                "owner": "iuc",
-                "changeset_revision": "81df4950d65b",
-                "name": "quast",
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            },
-            "uuid": "ec45cd9d-8687-41ea-b0a2-7d55be88a251",
-            "errors": null,
-            "name": "Quast",
-            "post_job_actions": {
-                "HideDatasetActionreport_pdf": {
-                    "output_name": "report_pdf",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
-                "HideDatasetActionmis_ass_tsv": {
-                    "output_name": "mis_ass_tsv",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
-                "RenameDatasetActionquast_tsv": {
-                    "output_name": "quast_tsv",
-                    "action_type": "RenameDatasetAction",
-                    "action_arguments": {
-                        "newname": "quast.tsv"
-                    }
-                },
-                "HideDatasetActionunalign_tsv": {
-                    "output_name": "unalign_tsv",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
-                "HideDatasetActionlog_txt": {
-                    "output_name": "log_txt",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
-                "HideDatasetActionreport_html": {
-                    "output_name": "report_html",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
+            "input_connections": {
+                "texts": {
+                    "id": 1,
+                    "output_name": "output_file"
                 }
             },
-            "label": null,
             "inputs": [
                 {
-                    "name": "input_operon",
-                    "description": "runtime parameter for tool Quast"
-                },
+                    "description": "runtime parameter for tool Combine",
+                    "name": "texts"
+                }
+            ],
+            "label": null,
+            "name": "Combine",
+            "outputs": [
                 {
-                    "name": "annot",
-                    "description": "runtime parameter for tool Quast"
-                },
-                {
-                    "name": "input_ref",
-                    "description": "runtime parameter for tool Quast"
+                    "name": "output",
+                    "type": "tabular"
                 }
             ],
             "position": {
-                "top": 102.5,
-                "left": 943.5
+                "left": 941.5,
+                "top": 540
             },
-            "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2",
-            "type": "tool"
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "mentalist_call.tsv"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/nml/combine_tabular_collection/combine/0.1",
+            "tool_shed_repository": {
+                "changeset_revision": "b815081988b5",
+                "name": "combine_tabular_collection",
+                "owner": "nml",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"texts\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}",
+            "tool_version": "0.1",
+            "type": "tool",
+            "uuid": "877d3d0b-58bc-48a5-87aa-7cc1f0a69a84",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "e30ef8d2-0acd-4dc8-841a-ec87c48ec2f3"
+                }
+            ]
         },
         "3": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/mlst/mlst/2.16.1",
-            "tool_version": "2.16.1",
-            "outputs": [
-                {
-                    "type": "tabular",
-                    "name": "report"
-                },
-                {
-                    "type": "fasta",
-                    "name": "novel_alleles"
-                }
-            ],
-            "workflow_outputs": [
-                {
-                    "output_name": "report",
-                    "uuid": "0309637f-bb1f-4689-bfd6-b72920f68b33",
-                    "label": null
-                },
-                {
-                    "output_name": "novel_alleles",
-                    "uuid": "6bb3c963-b9be-4f5e-802e-860d53cefb5b",
-                    "label": null
-                }
-            ],
-            "input_connections": {
-                "input_files": {
-                    "output_name": "contigs",
-                    "id": 1
-                }
-            },
-            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_files\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"settings\": \"{\\\"__current_case__\\\": 1, \\\"advanced\\\": \\\"advanced\\\", \\\"mincov\\\": \\\"10\\\", \\\"minid\\\": \\\"95\\\", \\\"novel\\\": \\\"true\\\", \\\"scheme_condition\\\": {\\\"__current_case__\\\": 0, \\\"exclude\\\": \\\"\\\", \\\"minscore\\\": \\\"50\\\", \\\"set_scheme\\\": \\\"auto\\\"}}\"}",
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/dfornika/mentalist/mentalist_distance/0.1.9",
             "id": 3,
-            "tool_shed_repository": {
-                "owner": "iuc",
-                "changeset_revision": "1f5641a52664",
-                "name": "mlst",
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            },
-            "uuid": "63510a99-239e-4ec5-a071-d731f40ff78f",
-            "errors": null,
-            "name": "MLST",
-            "post_job_actions": {
-                "RenameDatasetActionnovel_alleles": {
-                    "output_name": "novel_alleles",
-                    "action_type": "RenameDatasetAction",
-                    "action_arguments": {
-                        "newname": "novel_alleles.fasta"
-                    }
-                },
-                "RenameDatasetActionreport": {
-                    "output_name": "report",
-                    "action_type": "RenameDatasetAction",
-                    "action_arguments": {
-                        "newname": "mlst.tsv"
-                    }
+            "input_connections": {
+                "input": {
+                    "id": 2,
+                    "output_name": "output"
                 }
             },
-            "label": null,
             "inputs": [
                 {
-                    "name": "input_files",
-                    "description": "runtime parameter for tool MLST"
+                    "description": "runtime parameter for tool MentaLiST Distance Matrix",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "MentaLiST Distance Matrix",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
                 }
             ],
             "position": {
-                "top": 520.5,
-                "left": 939.5
+                "left": 1243,
+                "top": 435.5
             },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "mentalist_distance_matrix.tsv"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/dfornika/mentalist/mentalist_distance/0.1.9",
+            "tool_shed_repository": {
+                "changeset_revision": "a6cd59f35832",
+                "name": "mentalist",
+                "owner": "dfornika",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}",
+            "tool_version": "0.1.9",
+            "type": "tool",
+            "uuid": "26f4ee0b-377f-43f9-9e57-fae677cb1b9c",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "5364b385-5273-4642-b583-64a70ad86003"
+                }
+            ]
+        },
+        "4": {
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/mlst/mlst/2.16.1",
-            "type": "tool"
+            "content_id": "toolshed.g2.bx.psu.edu/repos/dfornika/mentalist/mentalist_tree/0.1.9",
+            "id": 4,
+            "input_connections": {
+                "input": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MentaLiST Tree",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "MentaLiST Tree",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 1528.5,
+                "top": 646
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "mentalist_nj_tree.newick"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/dfornika/mentalist/mentalist_tree/0.1.9",
+            "tool_shed_repository": {
+                "changeset_revision": "a6cd59f35832",
+                "name": "mentalist",
+                "owner": "dfornika",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}",
+            "tool_version": "0.1.9",
+            "type": "tool",
+            "uuid": "81837fd0-7458-4e19-afbd-3c03c97e3151",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "b0e0f6d7-5c05-405b-9a02-4478480d6093"
+                }
+            ]
         }
     },
-    "annotation": "",
-    "a_galaxy_workflow": "true"
+    "uuid": "124565f8-a1e4-4314-8996-54e9432ae7fb"
 }
