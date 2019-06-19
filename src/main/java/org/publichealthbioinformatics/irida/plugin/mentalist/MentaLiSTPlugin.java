@@ -95,7 +95,7 @@ public class MentaLiSTPlugin extends Plugin {
 		 */
 		@Override
 		public Optional<Color> getBackgroundColor() {
-			return Optional.of(Color.decode("4286f4"));
+			return Optional.of(Color.decode("#4286f4"));
 		}
 
 		/**
