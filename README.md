@@ -33,6 +33,18 @@ In order to use this pipeline, you will also have to install the [mentalist][], 
 | mentalist                    | `0.1.9`  | <https://toolshed.g2.bx.psu.edu/view/dfornika/mentalist/a6cd59f35832>               |
 | combine_tabular_collection   | `0.1`    | <https://toolshed.g2.bx.psu.edu/view/nml/combine_tabular_collection/b815081988b5>   |
 
+### Replacing the Automatically-Installed Conda Environment
+
+MentaLiST is implemented in the Julia programming language. Due to some complications with the way that Julia has been packaged into the conda ecosystem, it is likely that the automatically-created conda environment that Galaxy creates for MentaLiST will be broken upon initial installation.
+
+The IRIDA project has defined a conda environment file that can be used to create a replacement conda environment that is known to work.
+
+https://github.com/phac-nml/irida/blob/development/docker/virtual-machine/data/mentalist.env
+
+To replace the automatically-installed conda environment:
+
+1. <TODO>
+
 # Usage
 
 ## Monitoring Pipeline Status
